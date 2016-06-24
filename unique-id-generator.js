@@ -32,8 +32,9 @@ id(); // 2
 id(); // 3
 
 
-//Loaded Die:
 
+
+//Loaded Die:
 
 // var normalDie = function() {
 //   return Math.floor(1 + Math.random() * 6);
@@ -46,6 +47,42 @@ var loadedDie = (function() {
   })
 });
 loadedDie();  // 5
-loadedDie();  // 4
-loadedDie();  // 6
+//loadedDie();  // 4
+//loadedDie();  // 6
+
+
+
+
+
+//Countdown:
+
+var countdownGenerator = function(x) {
+
+  var count = x;
+
+    return function() {
+      if (count > 0) {
+        return ("T-minus " + count + "...")
+      } else if (count === 0) {
+        return ("Blast off!")
+      } else if (count < 0) {
+        return ("Rockets already gone, bub!")
+      }
+    }
+};
+
+var countdown1 = countdownGenerator(-4);
+console.log(countdown1(1));
+/*
+countdown(); // T-minus 3...
+countdown(); // T-minus 2...
+countdown(); // T-minus 1...
+countdown(); // Blast Off!
+countdown(); // Rockets already gone, bub!
+countdown(); // Rockets already gone, bub!
+*/
+
+
+
+
 
